@@ -79,8 +79,8 @@ let elizabethSanger = {
     let newString = '';
     for(i = 0; i < elizabethSanger.statements.length; i++){
        newString += `<div class="statement">`;
-       newString += `<h3>${elizabethSanger.statements[i].statement}</h3>`;
-       newString += `<h6>${elizabethSanger.statements[i].category}</h6>`;
+       newString += `<h2>${elizabethSanger.statements[i].statement}</h2>`;
+       newString += `<h3>${elizabethSanger.statements[i].category}</h3>`;
        newString += `</div>`; 
     }
     printToDom(newString, 'statements');
@@ -92,16 +92,16 @@ let elizabethSanger = {
     let newString = '';
     for(i = 0; i < elizabethSanger.events.length; i++){
        newString += `<div class="event">`;
-       newString += `<h3>${elizabethSanger.events[i].date}</h3>`;
-       newString += `<h6>${elizabethSanger.events[i].title}</h6>`;
-       newString += `<h6>${elizabethSanger.events[i].description}</h6>`;
+       newString += `<h3>${elizabethSanger.events[i].date}</h2>`;
+       newString += `<h3>${elizabethSanger.events[i].title}</h3>`;
+       newString += `<h3>${elizabethSanger.events[i].description}</h3>`;
        newString += `</div>`; 
     }
     printToDom(newString, 'events');
   };
 
   // Volunteers
-  
+
   const volunteersStringBuilder = () => {
     let newString = '';
     for(i = 0; i < elizabethSanger.volunteers.length; i++){
