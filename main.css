@@ -1,3 +1,27 @@
 body {
     background-color: wheat;
 }
+
+/* Styling for statements */
+.statement {
+    background-color: rosybrown;
+    border: 2px solid black;
+    width: 50%;
+    padding: 5px;
+}
+
+/* Styling for events */
+.event {
+    background-color: bisque;
+    border: 2px solid black;
+    width: 50%;
+    padding: 5px;
+}
+
+/* Styling for volunteers */
+.volunteer {
+    background-color: darkgoldenrod;
+    border: 2px solid black;
+    width: 50%;
+    padding: 5px;
+}

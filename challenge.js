@@ -73,6 +73,50 @@ let elizabethSanger = {
     selectedDiv.innerHTML = stringToPrint;
   };
 
+  // Statements
+
+  const statementsStringBuilder = () => {
+    let newString = '';
+    for(i = 0; i < elizabethSanger.statements.length; i++){
+       newString += `<div class="statement">`;
+       newString += `<h3>${elizabethSanger.statements[i].statement}</h3>`;
+       newString += `<h6>${elizabethSanger.statements[i].category}</h6>`;
+       newString += `</div>`; 
+    }
+    printToDom(newString, 'statements');
+  };
+
+  // Events
+
+  const eventsStringBuilder = () => {
+    let newString = '';
+    for(i = 0; i < elizabethSanger.events.length; i++){
+       newString += `<div class="event">`;
+       newString += `<h3>${elizabethSanger.events[i].date}</h3>`;
+       newString += `<h6>${elizabethSanger.events[i].title}</h6>`;
+       newString += `<h6>${elizabethSanger.events[i].description}</h6>`;
+       newString += `</div>`; 
+    }
+    printToDom(newString, 'events');
+  };
+
+  // Volunteers
+  
+  const volunteersStringBuilder = () => {
+    let newString = '';
+    for(i = 0; i < elizabethSanger.volunteers.length; i++){
+       newString += `<div class="volunteer">`;
+       newString += `<h1>${elizabethSanger.volunteers[i].name}</h1>`;
+       newString += `<h3>${elizabethSanger.volunteers[i].address}</h3>`;      
+       newString += `<h3>${elizabethSanger.volunteers[i].email}</h3>`;       
+       newString += `<h3>${elizabethSanger.volunteers[i].phone}</h3>`;
+       newString += `<h3>${elizabethSanger.volunteers[i].availability}</h3>`;
+       newString += `<h3>${elizabethSanger.volunteers[i].activities}</h3>`;
+       newString += `</div>`; 
+    }
+    printToDom(newString, 'volunteers');
+  };
+
   // Donation form
 
   const donationFormStringBuilder = () => {
@@ -80,7 +124,6 @@ let elizabethSanger = {
     printToDom(newString, 'donationForm');
   }
 
-  donationFormStringBuilder();
 
   // Registration Form
 
@@ -89,9 +132,22 @@ let elizabethSanger = {
     printToDom(newString, 'voterRegistration');
   };
 
-  voterRegistrationStringBuilder();
 
-//   const updateVoterRegistration = () => {
-//       // do some stuff
-//       voterRegistrationStringBuilder(); 
-//   }
+
+  statementsStringBuilder();
+  donationFormStringBuilder();
+  voterRegistrationStringBuilder();
+  eventsStringBuilder();
+  volunteersStringBuilder ();
+
+
+
+  
+
+// part 3
+
+  const updateVoterRegistration = (newUrl) => {
+      elizabethSanger.voterRegistrationUrl = newUrl;
+      voterRegistrationStringBuilder(); 
+  };
+    updateVoterRegistration('classtracker.zoeames.com');
