@@ -73,6 +73,13 @@ let elizabethSanger = {
     selectedDiv.innerHTML = stringToPrint;
   };
 
+  // Congressional District
+
+  const districtStringBuilder = () => {
+    const newString =`<h1>District : ${elizabethSanger.congressionalDistrict}</h1>`
+    printToDom(newString, 'congressionalDistrict');
+  }
+
   // Statements
 
   const statementsStringBuilder = () => {
@@ -122,8 +129,30 @@ let elizabethSanger = {
   const donationFormStringBuilder = () => {
     const newString = `<a href="https://${elizabethSanger.donationFormUrl}" target="_blank">Donate Here</a>`;
     printToDom(newString, 'donationForm');
-  }
+  };
 
+  // Biography
+
+  const bioStringBuilder = () => {
+    const newString = `<h2>Biography</h2><p>${elizabethSanger.biography}</p>`;
+    printToDom(newString,'biography');
+};
+
+  // Mission Statement
+  const missionStatementStringBuilder = () => {
+    const newString = `<h1>Mission Statement: ${elizabethSanger.missionStatement} </h1>`;
+    printToDom(newString, 'missionStatement');
+  };
+
+  // Images
+  const imagesStringBuilder = () => {
+    let newString = '';
+    for(i = 0; i < elizabethSanger.images.length; i++){
+        newString += `<div class="images">`
+        newString += `<img src="${elizabethSanger.images[i].imageUrl}">`
+        printToDom(newString, 'images');
+    };
+};
 
   // Registration Form
 
@@ -133,21 +162,106 @@ let elizabethSanger = {
   };
 
 
-
+  districtStringBuilder();
   statementsStringBuilder();
   donationFormStringBuilder();
   voterRegistrationStringBuilder();
   eventsStringBuilder();
+  bioStringBuilder();
   volunteersStringBuilder ();
+  missionStatementStringBuilder();
+  imagesStringBuilder();
 
 
+//////// part 3 //////////////
 
-  
 
-// part 3
+// Voter Registration
 
   const updateVoterRegistration = (newUrl) => {
       elizabethSanger.voterRegistrationUrl = newUrl;
       voterRegistrationStringBuilder(); 
   };
     updateVoterRegistration('classtracker.zoeames.com');
+
+// Congressional District
+
+  const updateDistrict = (newDistrict) => {
+    elizabethSanger.congressionalDistrict = newDistrict;
+    districtStringBuilder();
+  };
+    updateDistrict('8');
+
+// Mission Statement
+
+const updateMissionStatement = (newMission) => {
+  elizabethSanger.missionStatement = newMission;
+  missionStatementStringBuilder();
+};
+  updateMissionStatement('This is the new statement that we are using.');
+
+// Biography
+
+const updateBiography = (newBiography) => {
+  elizabethSanger.biography = newBiography;
+  bioStringBuilder();
+};
+  updateBiography('I was born again through functions.');
+
+// Donation Form
+
+const updateDonationForm = (newDonationUrl) => {
+  elizabethSanger.donationFormUrl = newDonationUrl;
+  donationFormStringBuilder(); 
+};
+updateDonationForm('beeradvocate.com');
+
+// Statements
+
+const updateStatements = (newStatement, newCategory) => {
+  let statements = {
+    statement: newStatement,
+    category: newCategory
+  }
+  statementsStringBuilder();
+};
+  updateStatements();
+
+// Volunteers
+
+const updateVolunteers = (newName, newEmail, newAddress, newPhone, newAvailability, newActivities) => {
+  let volunteers = {
+    name: newName,
+    email: newEmail,
+    address: newAddress,
+    phone: newPhone,
+    availability: newAvailability,
+    activities: newActivities
+  }
+  volunteersStringBuilder();
+};
+  updateVolunteers();
+
+// Events
+
+const updateEvents = (newDate, newTitle, newDescription) => {
+  let events = {
+    date: newDate,
+    title: newTitle,
+    description: newDescription
+  }
+  eventsStringBuilder();
+};
+  updateEvents();
+
+// Images
+
+const updateImages = (newImageUrl, newDescription, newType) => {
+  let images = {
+    imageUrl: newImageUrl,
+    description: newDescription,
+    type: newType
+  }
+  imagesStringBuilder();
+};
+  updateImages();
